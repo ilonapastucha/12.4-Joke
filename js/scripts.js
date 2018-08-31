@@ -6,7 +6,9 @@
     var button = document.getElementById('get-joke');
     
     button.addEventListener('click', function(){
+        button.disabled = true;
         getJoke();
+        button.disabled = false;
     });
 
     var paragraph = document.getElementById('joke');
@@ -18,7 +20,7 @@
             var response = JSON.parse(xhr.response);
             paragraph.innerHTML = response.value.joke;
     });
-    
+
     xhr.send();
     }
 
